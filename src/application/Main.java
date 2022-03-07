@@ -31,7 +31,7 @@ public class Main {
 		
 	
 		
-		System.out.println("\n----- TESTE 2: seller insert -----");
+		System.out.println("\n----- TESTE 2: seller findById -----");
 		
 		list = sellerDao.findAll();
 	
@@ -42,10 +42,20 @@ public class Main {
 		
 		
 
-		System.out.println("\n----- TESTE 3: seller findById -----");
+		System.out.println("\n----- TESTE 3: seller insert-----");
 		
 		Seller newSeller = new Seller(null, "Mateus", "mateusmed@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserido! New id = " + newSeller.getId());
+	
+		
+		
+		
+		System.out.println("\n----- TESTE 4: seller update-----");
+		
+		seller = sellerDao.findById(9);
+		seller.setName("Antonio Mateus");
+		sellerDao.update(seller);
+		System.out.println("Update check!");
 	}
 }
