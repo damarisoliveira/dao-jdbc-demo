@@ -56,18 +56,8 @@ public class SellerDaoJDBC implements SellerDAO{
 			/*testa se veio algum resultado na rs */
 			
 			if(rs.next()) {
-				Department dep = new Department();
-				Seller obj = new Seller();
-				
-				dep.setId(rs.getInt("DepartmentId")); //dentro das aspas é o nome da coluna que está na coluna da tabela do banco
-				dep.setName(rs.getString("DepName"));
-				
-				obj.setId(rs.getInt("Id"));
-				obj.setName(rs.getString("Name"));
-				obj.setEmail(rs.getString("Email"));
-				obj.setBirthDate(rs.getDate("BirthDate"));
-				obj.setBaseSalary(rs.getDouble("BaseSalary"));
-				obj.setDepartment(dep);
+				Department dep = intantiateDepatment(rs);
+				Seller obj = instantiateSeller(rs, dep);
 				
 				return obj;
 				
@@ -84,6 +74,27 @@ public class SellerDaoJDBC implements SellerDAO{
 			//não fecha a conexão para que outras operações usando o mesmo dao
 		}
 		
+	}
+
+	private Seller instantiateSeller(ResultSet rs, Department dep) throws SQLException {
+		Seller obj = new Seller();
+		
+		obj.setId(rs.getInt("Id"));
+		obj.setName(rs.getString("Name"));
+		obj.setEmail(rs.getString("Email"));
+		obj.setBirthDate(rs.getDate("BirthDate"));
+		obj.setBaseSalary(rs.getDouble("BaseSalary"));
+		obj.setDepartment(dep);
+		
+		return null;
+	}
+
+	private Department intantiateDepatment(ResultSet rs) throws SQLException {
+		Department dep = new Department();
+		dep.setId(rs.getInt("DepartmentId")); //dentro das aspas é o nome da coluna que está na coluna da tabela do banco
+		dep.setName(rs.getString("DepName"));
+		
+		return dep;
 	}
 
 	@Override
