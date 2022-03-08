@@ -21,7 +21,7 @@ public class Main {
 		
 		
 		
-		System.out.println("\n----- TESTE 1: seller findById -----");
+		System.out.println("\n----- TESTE 2: seller findById -----");
 		
 		Department department = new Department(2, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
@@ -32,17 +32,17 @@ public class Main {
 		
 	
 		
-		System.out.println("\n----- TESTE 2: seller findById -----");
+		System.out.println("\n----- TESTE 3: seller findById -----");
 		
 		list = sellerDao.findAll();
-	
+		
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
 		
 		
 
-		System.out.println("\n----- TESTE 3: seller insert-----");
+		System.out.println("\n----- TESTE 4: seller insert-----");
 		
 		Seller newSeller = new Seller(null, "Mateus", "mateusmed@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
@@ -51,7 +51,7 @@ public class Main {
 		
 		
 		
-		System.out.println("\n----- TESTE 4: seller update-----");
+		System.out.println("\n----- TESTE 5: seller update-----");
 		
 		seller = sellerDao.findById(9);
 		seller.setName("Antonio Mateus");
@@ -60,7 +60,7 @@ public class Main {
 	
 
 		
-		System.out.println("\n----- TESTE 5: seller update-----");
+		System.out.println("\n----- TESTE 6: seller delete-----");
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Digite o ID: ");
