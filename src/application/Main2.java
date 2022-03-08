@@ -1,11 +1,13 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 import model.DAO.DaoFactory;
 import model.DAO.DepartmentDAO;
 import model.entities.Department;
+import model.entities.Seller;
 
 public class Main2 {
 
@@ -26,6 +28,8 @@ public class Main2 {
 		
 		
 		
+		
+		
 		System.out.println("\n----- TESTE 2: department findById -----");
 		
 		System.out.print("Digite o id: ");
@@ -36,6 +40,14 @@ public class Main2 {
 		
 		
 		
+		
+		
+		System.out.println("\n----- TESTE 3: department insert -----");
+		
+		Department newDepartment = new Department(null, "Music");
+		departmentDao.insert(newDepartment);
+		System.out.println("Inserido! id -> " + newDepartment.getId() + " Departamento -> " + newDepartment.getName());
+			
 		
 		
 		
